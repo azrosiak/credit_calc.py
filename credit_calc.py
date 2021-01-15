@@ -15,13 +15,14 @@ args = my_parser.parse_args()
 def diff_calc():  # differentiated: interests, principal, periods
     overpayment = 0
     int_rate_mont = (args.interest / 12) / 100
-    
+
     for m in range(1, args.periods + 1):
         differ = math.ceil((args.principal / args.periods) + int_rate_mont * (args.principal - ((args.principal * (m - 1)) / args.periods)))
         overpayment += differ
         print(f'Month {m}: payment is {differ}')
-        result_overpay = overpayment - args.principal
-        print(f' overpayment = {result_overpay}')
+
+    result_overpay = overpayment - args.principal
+    print(f' overpayment = {result_overpay}')
 
 
 def annuity_calc():  # annuity: interests, principal, periods
